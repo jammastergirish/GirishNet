@@ -1,0 +1,74 @@
+<TABLE WIDTH=486 CELLPADDING=0 CELLSPACING=1 BORDER=0>
+<TR><TD><P><B><A HREF="indexm.htm">Cut-N-Paste JavaScript Home</A> / Pseudo-Encrypted Password Restriction Script v2.0</B>
+<P><HR NOSHADE>
+<P><B>Instructions:</B> First, grab the script from below. There will be a comment in that file telling you to insert your "pe" form element. Note that it will <B>not</B> work until you have prepared your "pseudo-encrypted" usernames and passwords (you may prepare them below in our Pseudo-Encrypter) and pasted them into the same document at the place indicated in the script.
+<P>Second, prepare your list of user names and their accompanying passwords in the following format:
+<P><DD>first_username(space)first_username's_password(asterisk)
+<DD>second_username(space)second_username's_password(asterisk)
+<DD>third_username(space)third_username's_password(asterisk)
+<DD>etc.
+<P>Your list might look something like this:
+<pre>     John 4$3gb%a*
+     Mary hHhHhH*
+     Humphrey humphrey*</pre>
+Capital or lower case letters or numbers or a combination thereof may be used for the user names and passwords. Punctuation marks <B><I>except the single quote(') and double quote (") signs, the backslash (\) and the asterisk(*)</I></B> are permitted. (Because I am a lazy kinda guy)
+<P>The user names and passwords have been set to be case sensitive.  This means that john is <B>not</B> the same user name as John or JOHN. User names may be from 1 through 10 letters long.  However, all passwords must be at least 6 characters and may be no more than 10 characters long.
+<P>Once your list is prepared, paste it into the "Pseudo-Encrypter", click Submit and it will return two form elements to be pasted into the script you have already pasted into your text editor.
+<P>The "Pseudo-Encrypter" will also return to you <B>another</B> short script for an extra page -- the intervening page that serves as a somewhat secure buffer between your password entry page and the restricted destination page. (Your restricted URL does not appear anywhere on the initial page, but appears instead on the intervening buffer page)
+</FONT>
+<P><HR NOSHADE><P></TD></TR>
+</TABLE>
+<P>
+<TABLE BORDER=0 WIDTH=490 CELLPADDING=12 CELLSPACING=0>
+<TR><TD>
+
+
+
+<B>GRAB THE SCRIPT:</B> The link below is a text document of the code for this script. If you right click on it (click and hold down on Macs), you will get a menu that will let you save the document to your hard drive. Or you can just follow the link and copy and paste the code that your browser displays.<br><br>
+
+Grab the code for this script: <a href="newpwd.txt">newpwd.txt</a> and rename the file newpwd.htm (or yourfilename.htm).
+
+<br><br>
+Note that you will have to add a little form element (as explained by a comment in the newpwd.txt file) for the script to work. The little form element contains your encrypted username/password pairs.
+
+
+
+</TD></TR>
+</TABLE><P>
+
+<P><FORM NAME="en">
+<TABLE BORDER=0 WIDTH=490 CELLPADDING=12 CELLSPACING=0>
+<TR><TD BGCOLOR="CYAN"><BR><B>Pseudo-Encrypter</B>
+<P>If you so desire, you can <a href="newpwden.txt">Get Your Own Offline Pseudo-Encrypter v2.0</a> (just rename it newpwden.htm or yourfilename.htm).
+<P>Simply paste your list of user names and accompanying passwords into the window below, following the instructions at the top of this page. Then click the Submit button.  Immediately you will get back two form elements, one named "pe" and the other named "pf", which must be pasted <B>into</B> the script (pwd.htm) you copied above. You will also get a special script for a separate page which <B>must</B> be named "pwdss.htm" which serves as an intervening page that makes it real difficult to get the URL for your restricted page.</TD>
+<TR><TD BGCOLOR="CYAN" ALIGN=CENTER>
+
+<b>Please select your platform:</b> 
+<input type=radio name=newline onClick="">Mac &nbsp; &nbsp;
+<input type=radio name=newline onClick="" checked>Windows &nbsp; &nbsp;
+<input type=radio name=newline onClick="">Unix &nbsp; &nbsp;<br><br>
+
+Enter user names and passwords here then look below for the generated code:<br>
+<TEXTAREA NAME="entry" ROWS=10 COLS=60 WRAP=VIRTUAL></TEXTAREA><BR><DIV ALIGN=CENTER><INPUT TYPE="button" NAME="but" VALUE=" Submit " onClick="wrtIt()"></DIV><br><br>
+Paste the following code into the indicated position in your password entry page (pwd.htm):<br>
+<TEXTAREA NAME="paste1" ROWS=5 COLS=60 WRAP=VIRTUAL></TEXTAREA><br><br>
+
+Create a new document with the following code called pwdss.htm. This is the intervening page which makes it really difficult to get the URL for your restricted page:<br>
+<TEXTAREA NAME="paste2" ROWS=13 COLS=60 WRAP=VIRTUAL></TEXTAREA><br><br>
+
+Add this code to the HEAD of your restricted page HTML document:<br>
+<TEXTAREA NAME="paste3" ROWS=9 COLS=60 WRAP=VIRTUAL></TEXTAREA>
+
+</TD></TR>
+</TABLE></FORM><P>
+
+<HR NOSHADE WIDTH=484><P>
+<SCRIPT LANGUAGE="JavaScript">
+<!-- Hide JavaScript from Java-Impaired Browsers
+if (parent.location.href.indexOf("indexf.htm") != -1) {
+ parent.getSponsor();
+ parent.getBottom();
+}
+// End Hiding -->
+</SCRIPT>
+

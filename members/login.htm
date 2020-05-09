@@ -1,0 +1,254 @@
+<HTML><HEAD>
+<CENTER><img src="logomoz.gif"></CENTER>
+
+
+
+<!-- START
+	THIS SCRIPT REMEMBERS YOUR USERNAME + PASSWORD -->
+
+
+
+<SCRIPT language="JavaScript">
+<!--
+var never = new Date()
+never.setTime(never.getTime() + 2000*24*60*60*1000);
+
+// name is a string of the name of your cookie
+// value is the value corresponding to name
+function SetCookie(name, value) {
+ var expString = "; expires=" + never.toGMTString();
+ document.cookie = name + "=" + escape(value) + expString;
+}
+
+// returns value of cookie or null if cookie does not exist
+function GetCookie(name) {
+ var result = null;
+ var myCookie = " " + document.cookie + ";";
+ var searchName = " " + name + "=";
+ var startOfCookie = myCookie.indexOf(searchName);
+ var endOfCookie;
+ if (startOfCookie != -1) {
+  startOfCookie += searchName.length; // skip past name of cookie
+  endOfCookie = myCookie.indexOf(";", startOfCookie);
+  result = unescape(myCookie.substring(startOfCookie, endOfCookie));
+ }
+ return result;
+}
+
+use_cookies = "unsure";
+
+function saveValue(element) {
+ if (document.images && use_cookies == "unsure")
+  use_cookies = (confirm("This site uses cookies, that means that if you click on  "
+   +"Yes, your username will be pre-filled every time you come to this site "
+   +"so you won't have to type it all the time, although you will have to type your password, "
+   +"click on Yes if you want your username to be pre-filled every time you come here, if not click on Cancel. ") ? "yes":"no");
+ if (document.images && use_cookies == "yes") {
+  if ((element.type == "text")
+  || (element.type == "password")
+  || (element.type == "textarea")
+  || (element.type == "radio")) {
+   val = element.value;
+  } else if (element.type.indexOf("select") != -1) {
+   val = "";
+   for(k=0;k<element.length;k++)
+    if (element.options[k].selected)
+     val += k+" ";
+  } else if (element.type == "checkbox") {
+   val = element.checked;
+  }
+  SetCookie("memory_"+element.form.name+"_"+element.name,val);
+ }
+}
+
+function storedValues() {
+ if (document.images) { // only do it in JavaScript 1.1 browsers
+  for (i=0;i<document.forms.length;i++) {
+   for (j=0;j<document.forms[i].elements.length; j++) {
+    cookie_name = "memory_"+document.forms[i].name+"_"
+     +document.forms[i].elements[j].name;
+    val = GetCookie(cookie_name);
+    if (val) {
+     if ((document.forms[i].elements[j].type == "text")
+     || (document.forms[i].elements[j].type == "password")
+     || (document.forms[i].elements[j].type == "textarea")) {
+      document.forms[i].elements[j].value = val;
+     } else if (document.forms[i].elements[j].type.indexOf("select") != -1) {
+      document.forms[i].elements[j].selectedIndex = -1;
+      while (((pos = val.indexOf(" ")) != -1) && (val.length > 1)) {
+       sel = parseInt(val.substring(0,pos));
+       val = val.substring(pos+1,val.length);
+       if (sel < document.forms[i].elements[j].length)
+        document.forms[i].elements[j].options[sel].selected = true;
+      }
+     } else if (document.forms[i].elements[j].type == "checkbox") {
+      document.forms[i].elements[j].checked = val;
+     } else if (document.forms[i].elements[j].type == "radio") {
+      if (document.forms[i].elements[j].value == val)
+       document.forms[i].elements[j].checked = true;
+     }
+    }
+   }
+  }
+ }
+}
+
+window.onload = storedValues;
+
+// -->
+</SCRIPT>
+
+
+
+
+
+<!-- END
+	THIS SCRIPT REMEMBERS YOUR USERNAME + PASSWORD -->
+
+
+
+
+
+
+<!-- START
+	THIS IS THE PASSWORD SCRIPT -->
+
+
+
+<SCRIPT LANGUAGE="JavaScript">
+<!-- Hide from JavaScript-Impaired Browsers
+al="`1234567890-=~!@#$%^&*()_+qwer"
++"tyuiop[]QWERTYUIOP{}|asdfghjkl;A"
++"SDFGHJKL:zxcvbnm,./ZXCVBNM<>?";
+ab1="";
+bctr=0;
+function unencr(val) {
+ ab1z="";
+ lsz=val;
+ az=eval(lsz.substring(0,2))-91;
+ lsz=lsz.substring(2,lsz.length);
+ nlsz="";
+ flgz=0;
+ abz=eval(lsz.substring(0,2))-89;
+ ab1z=(ab1z==""?""+abz:ab1z);
+ oab1z=ab1z;
+ lsz=lsz.substring(2,lsz.length);
+ for (var i=0;i<abz;i++) {
+  nrz=eval(lsz.substring(0,2))-az;
+  lsz=lsz.substring(2,lsz.length);
+  nlsz+=al.charAt(nrz);
+ }
+ return nlsz;
+}
+function ckPwd(){
+ tst=document.isn.username.value
+ +"*"+document.isn.passwrd.value+"*";
+ ls=document.pd.pe.value;
+ a=eval(ls.substring(0,2))-91;
+ ls=ls.substring(2,ls.length);
+ nls="";
+ flg=0;
+ while (ls.length>12){
+  ab=eval(ls.substring(0,2))-89;
+  ab1=(ab1==""?""+ab:ab1);
+  oab1=ab1;
+  ls=ls.substring(2,ls.length);
+  for (var i=0;i<ab;i++){
+   nr=eval(ls.substring(0,2))-a;
+   ls=ls.substring(2,ls.length);
+   nls+=al.charAt(nr);
+   }
+  nls+="*";
+  if (nls.indexOf(tst)>-1){
+   ls="";
+   flg=1;
+   }
+  }
+ if (flg==1){
+  tstOk();
+  }
+ else{
+  bctr++;
+  if (bctr>3){
+  /* Be sure to put the name of the page
+     here to which you want visitors to be
+     sent if they FAIL to enter a correct
+     password and user name after three
+     tries. */
+   location.href="wrongpg.htm";
+   }
+  else{
+   alert("Sorry. Bad Username or Password."
+   +" Failed Attempt number "+bctr+".");
+   }
+  }
+ }
+
+function tstOk(){
+ ab1=ab1+""+a;
+ azzz=unencr(document.pd.pf.value);
+ alert("You Entered a Valid Username and Password, "
+  +document.isn.username.value+"! Taking you to the"
+  +" restricted page as soon as you click OK.");
+ location.href=azzz+"?"+ab1;
+}
+
+function srand() {
+ today=new Date();
+ rand=today.getTime();
+ picker=""+rand
+ picker=picker.charAt((picker.length-4));
+ rec=eval(picker);
+ }
+// End Hiding -->
+</SCRIPT>
+
+
+
+<!-- END
+	THIS IS THE PASSWORD SCRIPT -->
+
+
+</HEAD>
+
+
+<BODY BGCOLOR="white"><CENTER>
+
+
+
+<FORM NAME="pd">
+<!-- IMPORTANT: After you run the pseudo-encrypter, you will get two "hidden" form 
+elements constructed especially for your own user names and passwords. 
+Paste those form elements right below this note and above the end of form tag. -->
+<INPUT TYPE='hidden' NAME='pe' VALUE='96957038343857619657568138803364934957615695823881567863 '>
+<INPUT TYPE='hidden' NAME='pf' VALUE='9698403258575784613582 '>
+</FORM>
+
+
+
+<FORM NAME="isn">
+<TABLE BORDER=2 CELLPADDING=5 CELLSPACING=0 BGCOLOR=BLUE>
+<TR><TD COLSPAN=2 ALIGN=CENTER><FONT SIZE=4 COLOR=lightgrey face="Helvetica,Arial,Geneva">
+<B>Members Only<BR></B></FONT></TD></TR>
+<TR><TD><FONT SIZE=3 COLOR=lightgrey><B>Your User Name:</B></FONT></TD>
+<TD><INPUT TYPE="text" NAME="username" SIZE=10 onChange="saveValue(this)"></TD></TR>
+<TR><TD><FONT SIZE=3 COLOR=lightgrey><B>Your Password:</B></FONT></TD>
+<TD><INPUT TYPE="password" NAME="passwrd" SIZE=10></TD></TR>
+
+
+<TR><TD COLSPAN=2 ALIGN=CENTER><INPUT TYPE="button" NAME="btn" VALUE="Log In" 
+onClick="ckPwd()"></TD></TR>
+</TABLE></FORM>
+
+
+
+
+
+<SCRIPT LANGUAGE="JavaScript">
+<!-- Hide JavaScript from Java-Impaired Browsers
+document.isn.passwrd.focus();
+// End Hiding -->
+</SCRIPT>
+
+</BODY>
+</HTML>

@@ -1,0 +1,38 @@
+The following is just a demonstration of how you would link to search.htm from other pages:<br><br>
+
+
+
+<script language="JavaScript">
+<!--
+// enter full or relative URL to your search page
+var search_htm_url = "index.htm";
+
+function searchPage() {
+ if ((document.searchpage.keyword.value.length == 0)
+ || (document.searchpage.keyword.value == " ")) {
+  alert("First you must enter a keyword to search for.");
+ } else {
+  sel = document.searchpage.and_or.selectedIndex;
+  location.href = search_htm_url + "?"
+   + escape(document.searchpage.keyword.value)
+   + (sel==0?"&and":(sel==2?"&exact":"&or"));
+ }
+ return false;
+}
+
+document.write('<form name="searchpage" onSubmit="return searchPage()">'
+ +'Search for: <input type="text" size=15 name="keyword"> '
+ +'<input type="button" value="Search" onClick="searchPage()"><br>'
+ +'<select name="and_or" size=1><option>find all words (AND)<option>find any word '
+ +'(OR)<option>exact match</select></form>');
+// -->
+</script>
+
+<br><br>
+Or you can just use direct links. For instance, if you wanted to search for the keyword 
+"javascript", then you would link to <a href="index.htm?javascript">index.htm?javascript
+</a>. Or search for "javascript" or "perl": <a href="index.htm?javascript%20perl&or">
+index.htm?javascript%20perl&or</a>. Or for "javascript" and "perl": 
+<a href="index.htm?javascript%20perl&and">index.htm?javascript%20perl&and</a>. 
+Or for the exact phrase "javascript perl": <a href="index.htm?javascript%20perl&exact">
+index.htm?javascript%20perl&exact</a>. (note that %20 is the URL escaped form of a space).

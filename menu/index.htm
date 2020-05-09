@@ -1,0 +1,273 @@
+<html>
+<head>
+<title>GirishNet Online</TITLE>
+<style>
+<!--
+A {color:"navy"; text-decoration:none;}
+A:hover {color:"red"; text-decoration:;}
+-->
+</style>
+
+<script language="JavaScript" src="menu/dynlayer.js"></script>
+<script language="JavaScript" src="menu/miniscroll.js"></script>
+<script language="JavaScript">
+<!--
+
+/*
+This is a simple application of DHTML to create a slick
+interface to your pages.  The concepts involved here
+are Clipping, Nesting, Sliding, DynLayer, and MiniScroll
+Object from the Scroll Concepts lesson.
+*/
+
+function init() {
+	// define arrays to be used to store DynLayers
+	pulloutContent = new Array
+	pulloutWindow = new Array
+	pulloutScroll = new Array
+	
+	// go through each of the 5 sets (0 to 4) of pullout screens
+	// assign a DynLayer to the main Window layer and the Content
+	// layer, then create a MiniScroll using these 2 DynLayers
+	for (var i=0;i<=4;i++) {
+		pulloutContent[i] = new DynLayer('pullout'+i+'Content')
+		pulloutWindow[i] = new DynLayer('pullout'+i+'Window')
+		pulloutWindow[i].slideInit()
+		pulloutScroll[i] = new MiniScroll(pulloutWindow[i],pulloutContent[i])
+	}
+	
+	// set a flag so that you cannot activate multiple pullouts at the same time
+	pulloutActive = false
+	
+	// keep track of which of the screens is shown
+	pulloutShown = 0
+}
+
+// function to slide the currently shown screen out
+// then calls pulloutEnd which slides the next one into view
+function pulloutStart(i) {
+	if (i!=pulloutShown) {
+		pulloutActive = true
+		// when it's done sliding out, call pulloutEnd() to slide the other one in
+		pulloutWindow[pulloutShown].slideTo(-285,null,15,15,'pulloutEnd('+i+')')
+	}
+}
+function pulloutEnd(i) {
+	pulloutShown = i
+	// set the flag back to false so that you can then click another one
+	pulloutWindow[i].slideTo(0,null,15,15,'pulloutActive==false')
+}
+
+//-->
+</script>
+<style type="text/css">
+<!--
+
+A {color:#000000; font-family:'Arial'; font-size:10pt;}
+A.scroll {color:#FFFFFF;}
+STRONG {font-family:'Arial'; font-size:15pt; font-weight:bold; line-height:25pt;}
+P {font-family:'Arial'; font-size:10pt; line-height:13pt;}
+
+<!-- the main black square -->
+#pulloutInterface {position:absolute; left:0; top:0; width:400; height:250; clip:rect(0,400,250,0); background-color:black; layer-background-color:#000000;}
+
+<!-- the buttons on the left -->
+#pullout0Sidebar {position:absolute; left:5; top:5; width:100; height:30; clip:rect(0,100,30,0); background-color:#DEDEDE; layer-background-color:#DEDEDE;}
+#pullout1Sidebar {position:absolute; left:5; top:40; width:100; height:30; clip:rect(0,100,30,0); background-color:#DEDEDE; layer-background-color:#DEDEDE;}
+#pullout2Sidebar {position:absolute; left:5; top:75; width:100; height:30; clip:rect(0,100,30,0); background-color:#DEDEDE; layer-background-color:#DEDEDE;}
+#pullout3Sidebar {position:absolute; left:5; top:110; width:100; height:30; clip:rect(0,100,30,0); background-color:#DEDEDE; layer-background-color:#DEDEDE;}
+#pullout4Sidebar {position:absolute; left:5; top:145; width:100; height:30; clip:rect(0,100,30,0); background-color:#DEDEDE; layer-background-color:#DEDEDE;}
+
+#pulloutUpDown {position:absolute; left:5; top:200;}
+
+<!-- the big square where the contents are shown -->
+#pulloutViewArea {position:absolute; left:110; top:5; width:285; height:240; clip:rect(0,285,240,0); background-color:#000000; layer-background-color:#000000;}
+
+<!-- Windows are the grey squares, Contents are the text in each -->
+<!-- all these except #0 are are positioned offscreen -285 and -->
+<!-- must slide to 0 to be seen -->
+#pullout0Window {position:absolute; left:0; top:0; width:285; height:240; clip:rect(0,285,240,0); background-color:#DEDEDE; layer-background-color:#DEDEDE;}
+#pullout0Content {position:absolute; left:5; top:0; width:275;}
+#pullout1Window {position:absolute; left:-285; top:0; width:285; height:240; clip:rect(0,285,240,0); background-color:#DEDEDE; layer-background-color:#DEDEDE;}
+#pullout1Content {position:absolute; left:5; top:0; width:275;}
+#pullout2Window {position:absolute; left:-285; top:0; width:285; height:240; clip:rect(0,285,240,0); background-color:#DEDEDE; layer-background-color:#DEDEDE;}
+#pullout2Content {position:absolute; left:5; top:0; width:275;}
+#pullout3Window {position:absolute; left:-285; top:0; width:285; height:240; clip:rect(0,285,240,0); background-color:#DEDEDE; layer-background-color:#DEDEDE;}
+#pullout3Content {position:absolute; left:5; top:0; width:275;}
+#pullout4Window {position:absolute; left:-285; top:0; width:285; height:240; clip:rect(0,285,240,0); background-color:#DEDEDE; layer-background-color:#DEDEDE;}
+#pullout4Content {position:absolute; left:5; top:0; width:275;}
+
+//-->
+</style>
+</head>
+
+<body bgcolor="black" text="#000000" onLoad="init()">
+
+
+<div id="pulloutInterface">
+
+<div id="pullout0Sidebar"><p align="center"><a href="javascript:pulloutStart(0)" title="Introduction">Intro</a></p></div>
+<div id="pullout1Sidebar"><p align="center"><a href="javascript:pulloutStart(1)" title="Picture of Girish">Picture of Girish</a></p></div>
+<div id="pullout2Sidebar"><p align="center"><a href="javascript:pulloutStart(2)" title="GirishNet Mailing List">Mailing List</a></p></div>
+<div id="pullout3Sidebar"><p align="center"><a href="javascript:pulloutStart(3)" title="Sign the GirishNet Guestbook">Sign Guestbook</a></p></div>
+<div id="pullout4Sidebar"><p align="center"><a href="javascript:pulloutStart(4)" title="FastCounter">FastCounter</a></p></div>
+
+<div id="pulloutUpDown">
+<a class="scroll" href="javascript:// Scroll Up" title="Scroll Up" onMouseDown="pulloutScroll[pulloutShown].up()" onMouseUp="pulloutScroll[pulloutShown].stop()" onMouseOut="pulloutScroll[pulloutShown].stop()">
+
+<img src="uparrow1.gif" name="up" border="0" alt="Scroll Up"
+onmouseover="document.images['up'].src='uparrow2.gif'"
+onmousedown="document.images['up'].src='uparrow2.gif'"
+onmouseout="document.images['up'].src='uparrow1.gif'"> Up</a>
+
+<br>
+
+<a class="scroll" href="javascript:// Scroll Down" title="Scroll Down" onMouseDown="pulloutScroll[pulloutShown].down()" onMouseUp="pulloutScroll[pulloutShown].stop()" onMouseOut="pulloutScroll[pulloutShown].stop()">
+
+<img src="downarrow1.gif" name="down" border="0" alt="Scroll Down"
+onmouseover="document.images['down'].src='downarrow2.gif'"
+onmousedown="document.images['down'].src='downarrow2.gif'"
+onmouseout="document.images['down'].src='downarrow1.gif'"> Down</a>
+
+</div>
+
+<div id="pulloutViewArea">
+
+<div id="pullout0Window">
+<div id="pullout0Content">
+<div align="center"><strong>Introduction</strong></div>
+<table border=0 width=275><td>
+<p> 
+
+<img src="../picture of girish.gif" alt="Picture of Girish" align="left" border="1">
+<font color="blue"
+face="Comic Sans ms">Welcome to GirishNet Online
+created by Girish Gupta, I'm 12 years old and I live in England (South East). 
+This window's pretty cool isn't it!
+You can scroll up and down by using the arrows on the bottom
+left.  If you have
+any problems viewing this web site then please send an e-mail to</font>
+<a href="mailto:problem.window@girishnet.globalnet.co.uk">
+<font face="Comic Sans MS">problem.window@girishnet.globalnet.co.uk</font></a>
+<font color="blue"
+face="Comic Sans MS">
+
+<p>Have fun, please
+tell me you were hear by filling in the </font>
+<a href="form.htm" target="new window">
+<font face="Comic Sans MS">form</font></a>
+<font color="blue"
+face="Comic Sans MS">, by joining the </font>
+<a href="javascript:pulloutStart(2)">
+<font face="Comic Sans MS">mailing list</font></a><font
+color="blue" face="Comic Sans MS"> or by </font>
+<a href="mailto:girishnet@globalnet.co.uk">
+<font face="Comic Sans MS">e-mailing</font></a><font color="blue"
+face="Comic Sans MS"> me. If you have any
+suggestions, comments please send an e-mail to </font>
+<a href="mailto:comments@girishnet.globalnet.co.uk" onMouseOver="window.status='Send Comments to GirishNet Online'; return true" onMouseOut="window.status=''; return true">
+<font
+face="Comic Sans MS">comments@girishnet.globalnet.co.uk</font></a><font
+color="blue" face="Comic Sans MS">.
+
+<p align="center"><font color="blue" face="Comic Sans MS">Girish
+Gupta</font>
+
+<p align="center">
+<!-- BEGIN FASTCOUNTER CODE -->
+<a href="http://fastcounter.linkexchange.com/fc-join" target="new window" onMouseOver="window.status='LinkExchange FastCounter'; return true" onMouseOut="window.status=''; return true">
+<img border="0" src="http://fastcounter.linkexchange.com/fastcounter?1090755+2181517" alt=". . . hits since January 1998">
+<br>
+<font face="arial" size="1">
+LinkExchange FastCounter</a>
+</font><br>
+<!-- END FASTCOUNTER CODE -->
+</p>
+
+
+</p>
+</td></table>
+</div>
+</div>
+
+<div id="pullout1Window">
+<div id="pullout1Content">
+<div align="center"><strong>Picture of Girish</strong></div>
+<table border=0 width=275><td>
+<p>
+<img src="../picture of girish, long.gif" align="left" alt="Picture of Girish" align="left" border="1">
+<font face="Comic Sans MS" color="blue">This picture was taken when I was 11 years old after a Radio 1 Roadshow</p>
+</td></table>
+</div>
+</div>
+
+<div id="pullout2Window">
+<div id="pullout2Content">
+<div align="center"><strong>GirishNet Mailing List</strong></div>
+<table border=0 width=275><td>
+<p>
+<div align="center">
+<!-- Begin ListBot Code -->
+<a name="list">
+<form method="post" action="http://www.listbot.com/cgi-bin/subscriber" target="new window">
+<table border=1><tr><td colspan=2>
+Join our mailing list!<br>
+Enter your email address below,<br>
+then click the 'Join List' button:<br>
+</td></tr><tr><td>
+<input type=text name="e_mail" style="BACKGROUND-COLOR: white; FONT-FAMILY: verdana; FONT-SIZE: 13px">
+<input type=hidden name="list_id" value="girishnet.list">
+</td><td>
+<input type=image src="../subscribe_button.gif" border=0 width=88 height=31 alt="Click here to join our mailing list!" onMouseOver="window.status='Join the GirishNet Mailing List'; return true" onMouseOut="window.status=''; return true"></td></tr>
+<tr><td colspan=2>
+<font size=1 face="arial">
+<CENTER><input type="radio" name="Act" value="subscribe_list" CHECKED> Subscribe
+<input type="radio" name="Act" value="unsubscribe_list"> Unsubscribe
+</font>
+</td></tr><tr><td colspan=2>
+<CENTER><font size=1 face="arial"><a href="http://www.listbot.com" target="new window" onMouseOver="window.status='Powered By ListBot'; return true" onMouseOut="window.status=''; return true">Powered by ListBot</a></font><br>
+</td></tr></table>
+</form>
+</font></center>
+<!-- End ListBot Code-->
+</p>
+</td></table>
+</div>
+</div>
+
+<div id="pullout3Window">
+<div id="pullout3Content">
+<div align="center"><strong>Sign the Guestbook</strong></div>
+<table border=0 width=275><td>
+<p>
+<div align="center"><a target="new window" href="http://www2.bravenet.com/guestbook/show.asp?userid=gn138592">
+<IMG SRC="../guestbook/viewbook.gif" border=0 onMouseOver="window.status='Please Sign the GirishNet Guestbook'; return true" onMouseOut="window.status=''; return true"></a>
+</p>
+</td></table>
+</div>
+</div>
+
+<div id="pullout4Window">
+<div id="pullout4Content">
+<div align="center"><strong>FastCounter</strong></div>
+<table border=0 width=275><td>
+<p>
+<div align="center">
+<!-- BEGIN FASTCOUNTER CODE -->
+<a href="http://fastcounter.linkexchange.com/fc-join" target="new window" onMouseOver="window.status='LinkExchange FastCounter'; return true" onMouseOut="window.status=''; return true">
+<img border="0" src="http://fastcounter.linkexchange.com/fastcounter?1090755+2181517" alt=". . . hits since January 1998">
+<br>
+<font face="arial" size="1">
+LinkExchange FastCounter</a>
+</font><br>
+<!-- END FASTCOUNTER CODE -->
+</p>
+</td></table>
+</div>
+</div>
+
+</div>
+</div>
+
+</body>
+</html>

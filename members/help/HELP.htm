@@ -1,0 +1,236 @@
+###### REMOVE THIS LINE AFTER YOU GRAB THE SCRIPT ######
+
+<HTML><HEAD>
+<title>Offline Pseudo-Encrypter for Password Restriction Script v2.0</title>
+
+<SCRIPT LANGUAGE="JavaScript">
+<!-- Hide from JS-Impaired Browsers
+al="`1234567890-=~!@#$%^&*()_+qwer"
++"tyuiop[]QWERTYUIOP{}|asdfghjkl;A"
++"SDFGHJKL:zxcvbnm,./ZXCVBNM<>?";
+rr="\r";
+nn="\n";
+fusr="";
+ntr="";
+function wrtIt(){
+ rr="\r";
+ nn="\n";
+ if (document.en.newline[0].checked) // Mac
+  nn = "";
+ else if (document.en.newline[2].checked) // Unix
+  rr = "";
+
+ ntr='<!-- Create this intervening'
+ +' page named "pwdss.htm" to help'
+ +' keep the restricted page URL a'
+ +' bit more difficult to discern.'
+ +' -->'+rr+nn+'<HTML><HEAD><SCRIP'
+ +'T LANGUAGE="JavaScript">'+rr+nn
+ +'ck=location.search;'+rr+nn
+ +'if (ck!="?';
+ ntr1='"){'+rr+nn
+ +'/* Substitute your own WRONG'+rr+nn
+ +'    destination here. */'+rr+nn
+ +' location.href="wrongpage.htm";'+rr+nn
+ +' }'+rr+nn
+ +'else{'+rr+nn
+ +' var today = new Date();'+rr+nn
+ +' var access = "?" + today.getDay()'+rr+nn
+ +'  + today.getDate() + today.getYear();'+rr+nn
+ +' /* Put the correct restricted'+rr+nn
+ +'    page name here. */'+rr+nn
+ +' location.href="restrictedpage.htm" + access;'+rr+nn
+ +'}'+rr+nn
+ +'</SCR'
+ +'IPT></HEAD></HTML>';
+ lst=document.en.entry.value+" "
+ ctr=0;
+ flg=0;
+ msg="";
+ lso="<!-- Paste these elements into your main script"+rr+nn
+ 	+"     named pwd.htm in the location indicated -->"+rr+nn
+ 	+"<INPUT TYPE='hidden' NAME='pe' VALUE='";
+ ls="";
+ while (lst.indexOf("\r")>-1){
+  pos=lst.indexOf(rr);
+  lst=lst.substring(0,pos)+lst.substring(pos+1,lst.length);
+ }
+ while (lst.indexOf("\n")>-1){
+  pos=lst.indexOf(nn);
+  lst=lst.substring(0,pos)+lst.substring(pos+1,lst.length);
+ }
+  
+ while (lst.indexOf("*")>-1){
+  pos=lst.indexOf("*");
+  usr=lst.substring(0,pos);
+  lst=lst.substring(pos+1,lst.length);
+  pos=usr.indexOf(" ");
+  if (pos<0){
+   flg=1;
+   lst="";
+   msg+=" No space found in "+usr;
+   }
+  usrn=usr.substring(0,pos);
+  fusr=(fusr==""?""+usrn.length:fusr);
+  usr=usr.substring(pos+1,usr.length);
+  if (usrn.length<1||usrn.length>10){
+   flg=1;
+   lst="";
+   msg+=" Length of name incorrect - Must be"
+   +" 1 through 10 letters - "+usrn;
+   }
+  if (usr.length<6||usr.length>10){
+   flg=1;
+   lst="";
+   msg+=" Length of password incorrect - Must"
+   +" be 6 through 10 characters - "+usrn+" "+usr;
+   }
+  if (usr.indexOf("'")>-1||usr.indexOf('"')>-1||usr.indexOf("*")>-1){
+   flg=1;
+   lst="";
+   msg+=" Forbidden characters in password: "+usrn+" "+usr;
+   }
+  usrn=(usrn.length-1)+usrn;
+  usr=(usr.length-1)+usr;
+  ls+=usrn+usr;
+  }
+ if (flg){
+  errMsg();
+  }
+ else{
+  cryptIt();
+  }
+ }
+
+function zcryptIt(){
+ lsz = "8pwdss.htm";
+ recz = zrand();
+ recz=(recz>8?recz-1:recz);
+ csz=""+(recz+91);
+ nwz=eval(lsz.substring(0,1))+1;
+ lsz=lsz.substring(1,lsz.length);
+ csz+=(nwz+89);
+ for (var i=0;i<nwz;i++){
+  chz=lsz.charAt(i);
+  posz=al.indexOf(chz)+recz;
+  nrz=""+posz;
+  nrz=(nrz.length==1?"0"+nrz:""+nrz);
+  csz+=nrz;
+ }
+ lsz=lsz.substring(nwz,lsz.length);
+ return (rr+nn+"<INPUT TYPE='hidden' NAME='pf' VALUE='"+csz+" '>");
+}
+
+function zrand() {
+ today=new Date();
+ randz=today.getTime();
+ pickerz=""+randz
+ pickerz=pickerz.charAt((pickerz.length - 4));
+ return eval(pickerz);
+}
+
+function cryptIt(){
+ srand();
+ rec=(rec>8?rec-1:rec);
+ cs=""+(rec+91);
+ while (ls.length>6){
+  nw=eval(ls.substring(0,1))+1;
+  ls=ls.substring(1,ls.length);
+  cs+=(nw+89);
+  for (var i=0;i<nw;i++){
+   ch=ls.charAt(i);
+   pos=al.indexOf(ch)+rec;
+   nr=""+pos;
+   nr=(nr.length==1?"0"+nr:""+nr);
+   cs+=nr;
+   }
+  ls=ls.substring(nw,ls.length);
+ }
+document.en.paste1.value=lso+cs+" '>"+zcryptIt();
+document.en.paste2.value=rr+nn+ntr+fusr+rec+ntr1;
+document.en.paste3.value='<SCRIPT LANGUAGE="JavaScript">'+rr+nn
+ +'<!--'+rr+nn
+ +'var today = new Date();'+rr+nn
+ +'var access = "?" + today.getDay()'+rr+nn
+ +' + today.getDate() + today.getYear();'+rr+nn
+ +'if (location.search != access)'+rr+nn
+ +' location.href = "wrongpg.htm"; // put your wrongpage here!!!!!'+rr+nn
+ +'// -->'+rr+nn
+ +'</SCR'
+ +'IPT>';
+}
+
+function errMsg(){
+ document.en.paste1.value="I'm sorry. There was this error: "
+ +msg+". Check your list and try again!";
+ }
+
+function srand() {
+ today=new Date();
+ rand=today.getTime();
+ picker=""+rand
+ picker=picker.charAt((picker.length - 4));
+ rec=eval(picker);
+ }
+// End Hiding -->
+</SCRIPT>
+</HEAD>
+<BODY BGCOLOR="white"><CENTER>
+<SCRIPT LANGUAGE="JavaScript">
+<!-- Hide JavaScript from Java-Impaired Browsers
+if (parent.location.href.indexOf("indexf.htm") != -1) {
+ parent.srand();
+ parent.getSponsor();
+}
+// End Hiding -->
+</SCRIPT>
+<TABLE WIDTH=486 CELLPADDING=0 CELLSPACING=1 BORDER=0>
+<TR><TD><P><B><A HREF="http://www.infohiway.com/javascript?newpassword">Cut-N-Paste JavaScript Home</A> / Offline Pseudo-Encrypter for Password Restriction Script v2.0</B>
+<P><HR NOSHADE>
+<P><B>Instructions:</B> AFTER you have grabbed the script (check <a href="http://www.infohiway.com/javascript?newpassword">here</a> if you haven't) and created your password entry page, there will be a comment telling you to add a "pe" form element. Your script will <B>not</B> work until you have prepared your "pseudo-encrypted" usernames and passwords and pasted them into the location designated for the "pe" element.
+<P>So, prepare your list of user names and their accompanying passwords in the following format:
+<P><DD>first_username(space)first_username's_password(asterisk)
+<DD>second_username(space)second_username's_password(asterisk)
+<DD>third_username(space)third_username's_password(asterisk)
+<DD>etc.
+<P>Your list might look something like this:
+<pre>     John 4$3gb%a*
+     Mary hHhHhH*
+     Humphrey humphrey*</pre>
+Capital or lower case letters or numbers or a combination thereof may be used for the user names and passwords. Punctuation marks <B><I>except the single quote(') and double quote (") signs, the backslash (\) and the asterisk(*)</I></B> are permitted. (Because I am a lazy kinda guy)
+<P>The user names and passwords have been set to be case sensitive.  This means that john is <B>not</B> the same user name as John or JOHN. User names may be from 1 through 10 letters long.  However, all passwords must be at least 6 characters and may be no more than 10 characters long.
+<P>Once your list is prepared, paste it into the "Pseudo-Encrypter", click Submit and it will return two form elements to be pasted into the script you have already pasted into your text editor.
+<P>The "Pseudo-Encrypter" will also return to you <B>another</B> short script for an extra page -- the intervening page that serves as a somewhat secure buffer between your password entry page and the restricted destination page. (Your restricted URL does not appear anywhere on the initial page, but appears instead on the intervening buffer page)
+</FONT>
+<P><HR NOSHADE><P></TD></TR>
+</TABLE>
+<P>
+<P><FORM NAME="en">
+<TABLE BORDER=0 WIDTH=490 CELLPADDING=12 CELLSPACING=0>
+<TR><TD BGCOLOR="CYAN"><BR><B>Pseudo-Encrypter</B>
+<P>Simply paste your list of user names and accompanying passwords into the window below, following the instructions at the top of this page. Then click the Submit button.  Immediately you will get back two form elements, one named "pe" and the other named "pf", which must be pasted <B>into</B> the script (pwd.htm) you copied above. You will also get a special script for a separate page which <B>must</B> be named "pwdss.htm" which serves as an intervening page that makes it real difficult to get the URL for your restricted page.</TD>
+<TR><TD BGCOLOR="CYAN" ALIGN=CENTER>
+
+<b>Please select your platform:</b> 
+<input type=radio name=newline onClick="" checked>Mac &nbsp; &nbsp;
+<input type=radio name=newline onClick="">Windows &nbsp; &nbsp;
+<input type=radio name=newline onClick="">Unix &nbsp; &nbsp;<br><br>
+
+Enter user names and passwords here then look below for the generated code:<br>
+<TEXTAREA NAME="entry" ROWS=10 COLS=60 WRAP=VIRTUAL></TEXTAREA><BR><DIV ALIGN=CENTER><INPUT TYPE="button" NAME="but" VALUE=" Submit " onClick="wrtIt()"></DIV><br><br>
+Paste the following code into the indicated position in your password entry page (pwd.htm):<br>
+<TEXTAREA NAME="paste1" ROWS=5 COLS=60 WRAP=VIRTUAL></TEXTAREA><br><br>
+
+Create a new document with the following code called pwdss.htm. This is the intervening page which makes it really difficult to get the URL for your restricted page:<br>
+<TEXTAREA NAME="paste2" ROWS=13 COLS=60 WRAP=VIRTUAL></TEXTAREA><br><br>
+
+Add this code to the HEAD of your restricted page HTML document:<br>
+<TEXTAREA NAME="paste3" ROWS=9 COLS=60 WRAP=VIRTUAL></TEXTAREA>
+
+</TD></TR>
+</TABLE></FORM><P>
+
+<HR NOSHADE WIDTH=484><P>
+
+</body>
+</html>

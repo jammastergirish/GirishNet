@@ -1,0 +1,16 @@
+<HTML><HEAD><SCRIPT LANGUAGE="JavaScript">
+ck=location.search;
+if (ck!="?65"){
+/* Substitute your own WRONG
+    destination here. */
+ location.href="wrongpage.htm";
+ }
+else{
+ var today = new Date();
+ var access = "?" + today.getDay()
+  + today.getDate() + today.getYear();
+ /* Put the correct restricted
+    page name here. */
+ location.href="loggedin.htm" + access;
+}
+</SCRIPT></HEAD></HTML>

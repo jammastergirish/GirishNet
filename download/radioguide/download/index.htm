@@ -1,0 +1,75 @@
+<HTML>
+<HEAD>
+<TITLE></TITLE>
+<style>
+<!--
+A {color:"navy"; text-decoration:none;}
+A:hover {color:"red"; text-decoration:underline;}
+-->
+</style>
+<script SRC="../../validateform.js" LANGUAGE=javascript></script>
+</head>
+
+
+<BODY BGCOLOR="white">
+
+
+<font color="navy" face="times new roman" size="3"><p align="center">DOWNLOAD<br>
+<strong>THE RADIO GUIDE v1.1</strong></p>
+
+<FORM ACTION="http://www.users.globalnet.co.uk/cgi-bin/FormMail.pl" name="form" METHOD="POST" onSubmit="return validate_form()"> 
+
+Your Name: <input type="text" size="26"
+    name="NAME"></p>
+Your E-Mail Address: <input type="text"
+    size="26" name="EMAIL"></p>
+Your Country: <input type="text" size="23"
+    name="COUNTRY"></p>
+</font>
+
+
+<input type=hidden name="recipient" value="download.radio.guide@girishnet.globalnet.co.uk">
+<input type=hidden name="redirect" value="http://www.users.globalnet.co.uk/~girishnet/download/radioguide/download/down.htm">
+
+
+<CENTER>
+<INPUT TYPE="image" SRC="../../images/download.gif" BORDER=0 WIDTH=67 HEIGHT=18 NAME="submit" ALT="Submit/Download" onMouseOver="window.status='Download'; return true" onMouseOut="window.status=''; return true">
+</form>
+
+<p>
+<script LANGUAGE=javascript>
+// Greg Boyd;   mims@frontiernet.net   URL:   http://www.frontiernet.net/~mims/
+// Password Java Script (v1.0);  
+// Please honor my hard work, if you use a variant of this in your page, then
+// please email me :) and keep the above comments in the Script.
+//
+//   This code is Copyright (c) 1997 Greg Boyd, 
+//   all rights reserved. In order to receive the right to license this 
+//   code for use on your site the original code must be copied from the
+//   Web site http://www.frontiernet.net/~mims/. License is granted touser to 
+//   reuse this code on their own Web site if and only if this entire copyright
+//   notice is included. Code written by Greg Boyd of http://www.frontiernet.net/~mims/.
+
+function password (pass)  {
+
+var password = ''
+
+
+if (password != null){
+        location.href= pass + ".htm";
+}
+}
+</script>
+
+<CENTER>
+<font color="navy" face="times new roman" size="3">If you have a 5-Digit pin number then, put it in this field and click on Download.  (Don't Press Enter)
+<FORM name="login">Your 5-Digit Pin: (use lower case) <input type="text" maxlength="5" size="7" input name="pass">
+
+<INPUT TYPE="button"
+VALUE="Download" 
+onClick="password(form.pass.value)">
+</form>
+
+
+</body>
+</html>

@@ -1,0 +1,8 @@
+AuthUserFile /home/mgo/.htpasswd
+AuthGroupFile /dev/null
+AuthName "GirishNet Online"
+AuthType Basic
+
+<limit GET POST>
+require user webmaster
+</limit>

@@ -1,0 +1,116 @@
+<html>
+
+<head>
+<meta http-equiv="Content-Type"
+content="text/html; charset=iso-8859-1">
+<meta name="GENERATOR" content="Microsoft FrontPage Express 2.0">
+<title>Untitled Normal Page</title>
+</head>
+
+
+<body background="background.gif" bgcolor="white">
+
+<p align="center"><font color="#0000FF" size="4" face="Trekker">For
+Your Eyes Only</font><font color="#FF0000" size="4"
+face="Trekker"><br>
+</font><font color="#FF0000" size="2" face="Typist">67A Camden High Street, Camden Town, London<br>
+(0171) 383 20 20<br>
+</font><a
+href="mailto:foryoureye@aol.com"
+onmouseover="style.color=&quot;blue&quot;"
+onmouseout="style.color=&quot;red&quot;"
+style="color: red; font-size: 9pt; font-family: Typist; text-decoration: none;">foryoureye@aol.com</a><br>
+
+
+<align=center><font face="arial" size=2 color="blue"><b><script language="JavaScript">
+<!-- Hide this script from js-challenged browsers --
+
+var days = new Array(8);
+days[1] = "Sunday";
+days[2] = "Monday";
+days[3] = "Tuesday";
+days[4] = "Wednesday";
+days[5] = "Thursday";
+days[6] = "Friday";
+days[7] = "Saturday";
+
+var months = new Array(13);
+months[1] = "January";
+months[2] = "Februry";
+months[3] = "March";
+months[4] = "April";
+months[5] = "May";
+months[6] = "June";
+months[7] = "July";
+months[8] = "August";
+months[9] = "September";
+months[10] = "October";
+months[11] = "November";
+months[12] = "December";
+
+
+var dateObj = new Date()
+var wday = days[dateObj.getDay() + 1]
+var lmonth = months[dateObj.getMonth() + 1]
+var date = dateObj.getDate()
+
+
+
+document.write(wday + ", " + lmonth + " " + date + "&nbsp;")
+
+//  Done Hiding -->
+</script></font>
+
+<div id=Clock align=center style="font-family: arial; font-size: 15; color:#0000FF">&nbsp;</div>
+
+<script>
+function tick() {
+  var hours, minutes, seconds, ap;
+  var intHours, intMinutes;
+  var today;
+
+  today = new Date();
+
+  intHours = today.getHours();
+  intMinutes = today.getMinutes();
+
+  if (intHours == 0) {
+     hours = "12:";
+     ap = "Midnight";
+  } else if (intHours < 12) { 
+     hours = intHours+":";
+     ap = "am";
+  } else if (intHours == 12) {
+     hours = "12:";
+     ap = "pm";
+  } else {
+     intHours = intHours - 12
+     hours = intHours + ":";
+     ap = "pm";
+  }
+
+  if (intMinutes < 10) {
+     minutes = "0"+intMinutes+":";
+  } else {
+     minutes = intMinutes+" ";
+  }
+
+
+  timeString = hours+minutes+ap;
+
+  Clock.innerHTML = timeString;
+
+  window.setTimeout("tick();", 100);
+}
+
+window.onload = tick;
+
+</script>
+<hr width="80%" color="#0000FF">
+
+</body>
+</html>
+
+
+<hr width="80%" color="#0000FF">
+

@@ -1,0 +1,357 @@
+<HTML XMLNS:IE>
+<head>
+<title>GirishNet Online</title>
+
+<!-- FACT: THIS PAGE CONTAINS ABOUT 542 LINES OF HTML! -->
+<style>
+<!--
+A {color:"navy"; text-decoration:none;}
+A:hover {color:"red"; text-decoration:underline;}
+-->
+</style>
+<STYLE>
+@media all {
+IE\:HOMEPAGE {behavior:url(#default#homepage)}
+}
+</STYLE>
+<SCRIPT>
+function fnSet(){ 
+oHomePage.setHomePage('http://surf.to/GirishNet/');
+event.returnValue = false;
+}
+</SCRIPT>
+<script language="javascript">
+// No rightclick script
+// (c) 1998 barts1000
+// barts1000@aol.com
+function click() {
+if (event.button==2) {
+alert('GirishNet Online')
+}
+}
+document.onmousedown=click
+</script>
+</head>
+
+<body bgcolor="white">
+
+
+
+
+
+
+
+
+
+
+<script language="JavaScript">
+<!--
+//THIS IS THE COOKIE SCRIPT THAT REMEMBERS THE VISITORS NAME
+//Script: NameCookie2010
+//(c)Giedrius gietam@eunet.lt
+
+cookie_name = "NameCookie2010";
+var GuestName;
+
+function putCookie() {
+ if(document.cookie) { index = document.cookie.indexOf(cookie_name);}
+ else { index = -1;}
+
+ if (index == -1)
+  {
+  GuestName=window.prompt("Hello! What's your first name/nickname? (Your name will be stored so next time you come to this web site, you will not be asked again!)","Nobody");
+  if (GuestName==null) GuestName="Nobody";
+  document.cookie=cookie_name+"="+GuestName+"; expires=Tuesday, 05-Apr-2000 05:00:00 GMT";
+  }
+ else
+  {
+  namestart = (document.cookie.indexOf("=", index) + 1);
+  nameend = document.cookie.indexOf(";", index);
+  if (nameend == -1) { nameend = document.cookie.length;}
+  GuestName = document.cookie.substring(namestart, nameend);
+  if (GuestName=="Nobody")
+   {
+   GuestName=window.prompt("Hello again!!!"+"\n"+"Last time you didn't tell me your name. Maybe you want to do it now?","Nobody");
+   if ((GuestName!="Nobody")&&(GuestName!=null))
+{document.cookie=cookie_name+"="+GuestName+"; expires=Tuesday, 05-Apr-2010 05:00:00 GMT";}
+   if (GuestName==null) GuestName="Nobody";
+   }
+  }
+}
+
+function getName() {
+    if(document.cookie)
+   {
+        index = document.cookie.indexOf(cookie_name);
+        if (index != -1)
+     {
+            namestart = (document.cookie.indexOf("=", index) + 1);
+            nameend = document.cookie.indexOf(";", index);
+            if (nameend == -1) {nameend = document.cookie.length;}
+            GuestName = document.cookie.substring(namestart, nameend);
+            return GuestName;
+           }
+        }
+}
+
+putCookie();
+GuestName=getName();
+
+//-->
+</script>
+
+<p align="center"><font color="#FF0000" size="4"
+face="Comic Sans MS">
+
+
+
+<!-- BEGIN LINKEXCHANGE CODE --><center><iframe src="http://leader.linkexchange.com/1/X1016942/showiframe?" width=468 height=60 marginwidth=0 marginheight=0 hspace=0 vspace=0 border=0 scrolling=no><a href="http://leader.linkexchange.com/1/X1016942/clickle" target="new window"><img width=468 height=60 border=0 ismap alt="" src="http://leader.linkexchange.com/1/X1016942/showle?"></a></iframe><br><a href="http://leader.linkexchange.com/1/X1016942/clicklogo" target="new window"><img src="http://leader.linkexchange.com/1/X1016942/showlogo?" width=468 height=16 border=0 ismap alt="Link Exchange"></a><br></center><!-- END LINKEXCHANGE CODE --><hr width="80%">
+<CENTER>
+<img src="title.gif"></a>
+<br>created by<br>
+Girish Gupta
+
+<p align="center">
+<APPLET CODE="NeXTClock.class" WIDTH=64 HEIGHT=64></applet>
+<CENTER>
+
+
+<a href="http://www.microsoft.com/windows/ie/" onMouseOver="window.status='Download IE5'; return true" onMouseOut="window.status=''; return true" target="new"><p align="center"><img src="ie4.gif" border="0"></a><p>
+
+<a href="http://www.users.globalnet.co.uk/~girishnet/ActiveChannel/girishnet.cdf" onMouseOver="window.status='Add the GirishNet Online Active Channel'; return true" onMouseOut="window.status=''; return true"
+title="Click here to add the GirishNet Online Active Channel"><img
+src="ActiveChannel/addchannel logo.gif"
+alt="The GirishNet Online Channel" border="0" width="136"
+height="20"></a>
+</p>
+
+<!-- START DATE SCRIPT -->
+
+<script language="JavaScript">
+//This is my first attempt at Javascript, give me a break
+//If you like this script and want to use it, just keep
+//this source code here please.  This script was written
+//by Chris Bulla, http://www.genevaonline.com/~bulla, pc4web@hotmail.com
+//Go to my page!  
+//©1997 Chris Bulla
+
+now = new Date()
+
+//To change the colors, just type in the colors that you
+//want for each spot.  bgColor is background, fgColor is
+//font color, linkColor is, well, you can figure out that
+//one.  The day 0 is Sunday, and 6 is Saturday.  Change the
+//messages as you want at the document.write, but it has 
+//to stay within the ' marks, or it won't work.  You can
+//also change where you want it to go and to look like
+//by putting in HTML code.
+
+if(now.getDay()==0)
+{
+document.bgColor = 'white'
+document.fgColor = 'black'
+document.linkColor = 'blue'
+document.write('<CENTER><P><img src="Daysoftheweek/sunday.gif" width="119" height="54" alt="Sunday"></CENTER><P>')
+}
+
+if(now.getDay()==1)
+{
+document.bgColor = 'white'
+document.fgColor = 'black'
+document.linkColor = 'blue'
+document.write('<CENTER><P><img src="Daysoftheweek/monday.gif" width="125" height="57" alt="Monday"></CENTER><P>')
+}
+if(now.getDay()==2)
+{
+document.bgColor = 'white'
+document.fgColor = 'black'
+document.linkColor = 'blue'
+document.write('<CENTER><P><img src="Daysoftheweek/tuesday.gif" width="119" height="53" alt="Tuesday"></CENTER><P>')
+}
+
+if(now.getDay()==3)
+{
+document.bgColor = 'white'
+document.fgColor = 'black'
+document.linkColor = 'blue'
+document.write('<CENTER><P><img src="Daysoftheweek/wednesday.gif" width="122" height="54" alt="Wednesday"></CENTER><P>')
+}
+
+if(now.getDay()==4)
+{
+document.bgColor = 'white'
+document.fgColor = 'Black'
+document.linkColor = 'black'
+document.write('<CENTER><P><img src="Daysoftheweek/thursday.gif" width="120" height="56" alt="Thursday"></CENTER><P>')
+}
+
+if(now.getDay()==5)
+{
+document.bgColor = 'white'
+document.fgColor = 'black'
+document.linkColor = 'black'
+document.write('<CENTER><P><img src="Daysoftheweek/friday.gif" width="124" height="57" alt="Friday"></CENTER><P>')
+}
+
+if(now.getDay()==6)
+{
+document.bgColor = 'white'
+document.fgColor = 'black'
+document.linkColor = 'black'
+document.write('<CENTER><P><img src="Daysoftheweek/saturday.gif" width="118" height="56" alt="Saturday"></CENTER><P>')
+}
+
+</script>
+<!-- END DATE SCRIPT -->
+
+<!-- Begin ListBot Code -->
+<font face="comic sans ms"><form method="post" target="new window" action="http://www.listbot.com/cgi-bin/subscriber"><p>Your E-Mail Address: </font><input type=text name="e_mail" size="30"  style="BACKGROUND-COLOR: red; FONT-FAMILY: comic sans ms; FONT-SIZE: 14px"><input type=hidden name="list_id" value="girishnet.list"> <input type=hidden name="Act" value="subscribe_list"> <input type=image src="subscribe_button.gif" border=0 align="absmiddle" alt="Click here to join the GirishNet Online mailing list!" onMouseOver="window.status='Join the GirishNet Mailing List'; return true" onMouseOut="window.status=''; return true"><br><font size=1 face="arial"><a href="http://www.listbot.com" target="new window" onMouseOver="window.status='Powered by ListBot'; return true" onMouseOut="window.status=''; return true">Powered by ListBot</a></font><br></form><!-- End ListBot Code -->
+<IE:HOMEPAGE ID="oHomePage" /><p>
+<INPUT TYPE="image" SRC="makehomew.gif" alt="Click here to make GirishNet Online your home page" onclick="fnSet()" onMouseOver="window.status='Click here to make GirishNet Online your home page'; return true" onMouseOut="window.status=''; return true">
+<hr size="5" width="80%">
+
+<p> 
+
+<img src="picofmes.jpg" alt="Picture of Girish" align="left" border="0">
+<font color="blue"
+face="Comic Sans ms"><script>
+document.write("Hello "+GuestName+", ");
+</script>Welcome to GirishNet Online
+created by me, Girish Gupta. I'm 12 years old and I live in the
+South East of England. I created this site on </font>
+
+<a href="http://www.microsoft.com" target="new window" onMouseOver="window.status='Microsoft - http://www.microsoft.com'; return true" onMouseOut="window.status=''; return true" title="Click here to go to the Microsoft Home Page">
+
+<font
+face="Comic Sans MS">Microsoft</a><font
+color="blue" face="Comic Sans MS"> Front Page Express, Webford
+2.0, Homesite and I used notepad for all the html bits. You can
+click around this site by using the cool bar at the top of
+this page, if the cool bar isn't working you need to </font>
+
+<a href="ie3.htm" onMouseOver="window.status='Click here to go to the IE3 page'; return true" onMouseOut="window.status=''; return true" title="Click here to go to the IE3/4 version of this site">
+
+<font face="Comic Sans MS">click
+here</font></a><font color="blue" face="Comic Sans MS">, you
+will be taken to the Internet Explorer 3/4 site.  By the way the mailing
+list form below is for the same mailing list as the one above.</font></p>
+
+<p><font color="blue" face="Comic Sans MS">If you need any
+help then right click with your mouse anywhere on this page.  
+Have fun, please
+tell me you were hear by filling in the </font>
+
+<a href="form.htm" onMouseOver="window.status='Fill in the Form'; return true" onMouseOut="window.status=''; return true" title="Fill in the form">
+
+<font face="Comic Sans MS">form</font></a>
+<font color="blue"
+face="Comic Sans MS">, by joining the </font>
+
+<a href="#list" onMouseOver="window.status='Join the Mailing List'; return true" onMouseOut="window.status=''; return true" title="Join the Mailing List">
+
+<font face="Comic Sans MS">mailing list</font></a><font
+color="blue" face="Comic Sans MS"> or by </font>
+
+<a href="mailto:girishnet@globalnet.co.uk" onMouseOver="window.status='E-Mail GirishNet Online'; return true" onMouseOut="window.status=''; return true" title="E-Mail GirishNet Online">
+
+<font face="Comic Sans MS">e-mailing</font></a><font color="blue"
+face="Comic Sans MS"> me. If you have any
+suggestions, comments please send an e-mail to </font>
+
+<a href="mailto:comments@girishnet.globalnet.co.uk" onMouseOver="window.status='Send Comments to GirishNet Online'; return true" onMouseOut="window.status=''; return true" title="E-Mail your comments to GirishNet Online">
+
+<font
+face="Comic Sans MS">comments@girishnet.globalnet.co.uk</font></a><font
+color="blue" face="Comic Sans MS">.
+
+<p align="center"><font color="blue" face="Comic Sans MS">Girish
+Gupta</font></p>
+
+<hr size="5" width="80%">
+
+<!-- Begin ListBot Code -->
+<a name="list">
+<form method="post" action="http://www.listbot.com/cgi-bin/subscriber" target="new window">
+<table border=1><tr><td colspan=2>
+Join our mailing list!<br>
+Enter your email address below,<br>
+then click the 'Join List' button:<br>
+</td></tr><tr><td>
+<input type=text name="e_mail" style="BACKGROUND-COLOR: white; FONT-FAMILY: verdana; FONT-SIZE: 13px">
+<input type=hidden name="list_id" value="girishnet.list">
+</td><td>
+<input type=image src="subscribe_button.gif" border=0 alt="Click here to join our mailing list!" onMouseOver="window.status='Join the GirishNet Mailing List'; return true" onMouseOut="window.status=''; return true"></td></tr>
+<tr><td colspan=2>
+<font size=1 face="arial">
+<CENTER><input type="radio" name="Act" value="subscribe_list" CHECKED> Subscribe
+<input type="radio" name="Act" value="unsubscribe_list"> Unsubscribe
+</font>
+</td></tr><tr><td colspan=2>
+<CENTER><font size=1 face="arial"><a href="http://www.listbot.com" target="new window" onMouseOver="window.status='Powered By ListBot'; return true" onMouseOut="window.status=''; return true">Powered by ListBot</a></font><br>
+</td></tr></table>
+</form>
+</font></center>
+<!-- End ListBot Code-->
+<hr size="5" width="80%">
+
+<p align="center"><a name="search"></a> </p>
+
+<p align="center"><font color="#004080" size="6" face="Mead Bold">The GirishNet Search Engine</font></p>
+
+<p align="center"><font color="#004080" size="6" face="Mead Bold">
+</font></p>
+
+<script language="JavaScript">
+<!--
+// enter full or relative URL to your search page
+var search_htm_url = "search/girishnetsearchengine/srch.html";
+
+function searchPage() {
+ if ((document.searchpage.keyword.value.length == 0)
+ || (document.searchpage.keyword.value == " ")) {
+  alert("First you must enter a keyword to search for.");
+ } else {
+  sel = document.searchpage.and_or.selectedIndex;
+  location.href = search_htm_url + "?"
+   + escape(document.searchpage.keyword.value)
+   + (sel==0?"&and":(sel==2?"&exact":"&or"));
+ }
+ return false;
+}
+
+document.write('<form name="searchpage" onSubmit="return searchPage()">'
+ +'Search for: <input type="text" size=30 name="keyword"> '
+ +'<input type="button" value="Search" onClick="searchPage()"><br>'
+ +'<select name="and_or" size=1><option>find all words (AND)<option>find any word '
+ +'(OR)<option>exact match</select></form>');
+// -->
+</script>
+</font>
+
+<hr size="5" width="80%">
+
+<!-- BEGIN FASTCOUNTER CODE -->
+<a href="http://fastcounter.linkexchange.com" target="new window" onMouseOver="window.status='LinkExchange FastCounter'; return true" onMouseOut="window.status=''; return true">
+<img border="0" src="http://fastcounter.linkexchange.com/fastcounter?1090755+2181517" alt=". . . hits since January 1998">
+<br>
+<font face="arial" size="1">
+LinkExchange FastCounter</a>
+</font><br>
+<!-- END FASTCOUNTER CODE -->
+
+<p>
+
+<font size="2" face="Verdana">© 1998/1999 - </font>
+
+<a href="mailto:webmaster@girishnet.globalnet.co.uk" onMouseOver="window.status='Send Mail to the WebMaster'; return true" onMouseOut="window.status=''; return true" title="E-Mail the webmaster, Girish Gupta">
+
+<font size="2" face="Verdana">GirishNet
+Online</font></a></p>
+<hr>
+<CENTER>
+<a href="linkto.htm" onMouseOver="window.status='Click here if you would like to link to GirishNet Online'; return true" onMouseOut="window.status=''; return true">
+<img src="banner/linkbanner5.gif" border="0" width="480" height="60"><br>Click here if you would like to link to GirishNet Online</a>
+
+
+</body>
+</html>

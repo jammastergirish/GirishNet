@@ -1,0 +1,135 @@
+<html>
+<title>GirishNet Online Image Preloads</title>
+<head>
+
+<script language="javascript">
+// No rightclick script
+// (c) 1998 barts1000
+// barts1000@aol.com
+function click() {
+if (event.button==2) {
+alert('Please be patient while some images are preloaded')
+}
+}
+document.onmousedown=click
+</script>
+
+
+<script language="JavaScript">
+<!--
+vers = 1.0;
+// -->
+</script>
+<script language="JavaScript1.1">
+<!--
+vers = 1.1;
+// -->
+</script>
+<script language="javascript">
+<!--
+function initArray() {
+ for (var i = 0; i < initArray.arguments.length; i++)
+  this[i] = initArray.arguments[i];
+ this.length = initArray.arguments.length;
+}
+var pics = new initArray(
+ "homepage.gif",
+ "subscribe_button.gif",
+ "default.gif",
+ "ball1.gif",
+ "clouds.gif",
+ "picture of girish.gif",
+ "vote.gif",
+ "recommend.gif");
+
+var transfer_url = "http://girishnet.tytek.net/gnet_cgi-bin/clickcount/main/clickcount.pl?url=http://www.users.globalnet.co.uk/~girishnet/ie5main.htm";
+
+function transfer(param) {
+ if (vers>1.0)
+  location.replace(transfer_url);
+ else
+  location.href = transfer_url;
+}
+
+function done() {
+ if (vers < 1.1)
+  transfer();
+ else
+  commence_loading();
+}
+
+function commence_loading() {
+ for (g=0;g<pics.length;g++)
+  eval('document.preload'+g+'.src = "'+pics[g]+'";');
+}
+
+// preload the status bar images
+if (vers >= 1.1) {
+ blue = new Image();
+ blue.src = "blue.gif";
+ black = new Image();
+ black.src = "black.gif";
+}
+
+var loaded = new Object();
+for (h=0;h<pics.length;h++)
+ loaded[h] = 0;
+num_loaded = 0;
+
+function update(num) {
+ loaded[num]++;
+ if (loaded[num] == 2) {
+  eval('document.status'+num_loaded+'.src = "blue.gif";');
+  num_loaded++;
+  if (num_loaded == pics.length)
+   transfer();
+ }
+}
+// -->
+</script>
+</head>
+<body bgcolor="white" onLoad="done()">
+<center><br>
+<font size=+1 face="Arial,Helvetica"> 
+Please be patient while some images<br>
+are preloaded. Thank you.</font><br><br>
+
+<script language="JavaScript">
+<!--
+if (vers < 1.1) {
+ document.write('What a pitiful browser you have! Get Netscape 3 or IE 3 or above to see<br>'
+  + 'all the great stuff on this site');
+ for (j=0;j<pics.length;j++) {
+  document.write('<img src="'+pics[j]+'" width=1 height=1>');
+ }
+} else {
+ document.write('<table><tr><td><b>status:</b> '
+  + '<img src="blue.gif" width=15 height=10>');
+ for (k=0;k<pics.length;k++)
+  document.write('<img src="black.gif" width=30 height=10 name="status'+k+'">');
+ document.write('</td></tr></table><br>'
+  + '<a href="'+transfer_url+'">Click here if you can\'t wait!</a>');
+ for (j=0;j<pics.length;j++) {
+  document.write('<img src="black.gif" width=1 height=1 '
+   + 'onLoad="update('+j+')" name="preload'+j+'">');
+ }
+}
+// -->
+</script>
+ 
+</center>
+
+<!-- 
+
+Cut-N-Paste JavaScript from ISN Toolbox 
+     Copyright 1996, Infohiway, Inc.  Restricted use is hereby
+     granted (commercial and personal OK) so long as this code
+     is not *directly* sold and the copyright notice is buried
+     somewhere deep in your HTML document.  A link to our site
+     http://www.infohiway.com is always appreciated of course,
+     but is absolutely and positively not necessary. ;-)  
+
+-->
+
+</body>
+</html>

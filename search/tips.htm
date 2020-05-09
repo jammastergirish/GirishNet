@@ -1,0 +1,46 @@
+<html>
+<head>
+<title>GirishNet Search - Tips</title>
+
+
+<CENTER>
+
+
+<IMG SRC="logo.gif" BORDER=0 NAME="menu" width="631" height="126" ALT="GirishNet Menu">
+<br>
+</CENTER>
+<p>
+
+<center>TIPS<p>
+If you are searching for a person and you type in their first and second name select
+exact match, if you only have typed in one keyword to search for then it
+doesn't matter which one you choose (OR, EXACT, AND).  To get back to the main search engine
+just click on the logo (on the word SEARCH). This search engine works best with
+Microsoft Internet Explorer
+
+
+<script language="JavaScript">
+<!--
+// enter full or relative URL to your search page
+var search_htm_url = "girishnetsearchengine/srch.html";
+
+function searchPage() {
+ if ((document.searchpage.keyword.value.length == 0)
+ || (document.searchpage.keyword.value == " ")) {
+  alert("First you must enter a keyword to search for.");
+ } else {
+  sel = document.searchpage.and_or.selectedIndex;
+  location.href = search_htm_url + "?"
+   + escape(document.searchpage.keyword.value)
+   + (sel==0?"&and":(sel==2?"&exact":"&or"));
+ }
+ return false;
+}
+
+document.write('<form name="searchpage" onSubmit="return searchPage()">'
+ +'Search for: <input type="text" size=15 name="keyword"> '
+ +'<input type="button" value="Search" onClick="searchPage()"><br>'
+ +'<select name="and_or" size=1><option>find all words (AND)<option>find any word '
+ +'(OR)<option>exact match</select></form>');
+// -->
+</script>
